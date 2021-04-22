@@ -4,4 +4,5 @@ import communication.cmm.model.User;
 
 public interface UserService {
     void insert(User user);
+    User findByToken(String Token);
 }
