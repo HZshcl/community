@@ -50,6 +50,7 @@ public class AuthorizeController {
             user1.setAccountId(String.valueOf(user.getId()));
             user1.setQmtCreate(System.currentTimeMillis());
             user1.setQmtModified(user1.getQmtCreate());
+            user1.setAvatarUrl(user.getAvatar_url());
             userService.insert(user1);
             response.addCookie(new Cookie("token",cookietoken));
             return "redirect:/";

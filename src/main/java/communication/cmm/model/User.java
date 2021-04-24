@@ -10,4 +10,5 @@ public class User {
     private String token;
     private Long qmtCreate;
     private Long qmtModified;
+    private String avatarUrl;
 }
