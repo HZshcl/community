@@ -43,47 +43,53 @@
                 </a>
                 </div>
                 <div class="media-body">
-<!--                    <h5 class="media-heading">-->
-<!--                        <span style="color: #c74747" th:if="${question.sticky >= 1}">[置顶] </span><a th:href="@{'/question/'+ ${question.id}}" th:text="${question.title}"></a>-->
-<!--                    </h5>-->
+               <h5 class="media-heading">
+<!--                       <span style="color: #c74747" th:if="${question.sticky >= 1}">[置顶] </span>-->
+                   <a th:href="@{'/question/'+ ${question.id}}" th:text="${question.title}"></a>-->
+               </h5>
                     <span class="text-desc"><span th:text="${question.commentCount}"></span> 个回复 • <span
                             th:text="${question.viewCount}"></span> 次浏览 • <span
                             th:text="${#dates.format(question.gmtCreate,'yyyy-MM-dd HH:mm')}"></span></span>
                 </div>
-<!--            </div>-->
-<!--            <nav aria-label="Page navigation">-->
-<!--                <ul class="pagination">-->
-<!--                    <li th:if="${pagination.showFirstPage}">-->
-<!--                        <a th:href="@{/(page=1,search=${search},tag=${tag},sort=${sort})}" aria-label="Previous">-->
-<!--                            <span aria-hidden="true">&lt;&lt;</span>-->
-<!--                        </a>-->
-<!--                    </li>-->
-<!--                    <li th:if="${pagination.showPrevious}">-->
-<!--                        <a th:href="@{/(page=${pagination.page - 1},search=${search},tag=${tag},sort=${sort})}"-->
-<!--                           aria-label="Previous">-->
-<!--                            <span aria-hidden="true">&lt;</span>-->
-<!--                        </a>-->
-<!--                    </li>-->
 
-<!--                    <li th:each="page : ${pagination.pages}" th:class="${pagination.page == page}? 'active' : ''">-->
-<!--                        <a th:href="@{/(page=${page},search=${search},tag=${tag},sort=${sort})}" th:text="${page}"></a>-->
-<!--                    </li>-->
+            </div>
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li>
+                        <a th:href="@{/(page=1,size=${questionPage.pageSize})}" aria-label="Previous">
+                            <span aria-hidden="true">&lt;&lt;</span>
+                        </a>
+                    </li>
 
-<!--                    <li th:if="${pagination.showNext}">-->
-<!--                        <a th:href="@{/(page=${pagination.page +1 },search=${search},tag=${tag},sort=${sort})}"-->
-<!--                           aria-label="Previous">-->
-<!--                            <span aria-hidden="true">&gt;</span>-->
-<!--                        </a>-->
-<!--                    </li>-->
-<!--                    <li th:if="${pagination.showEndPage}">-->
-<!--                        <a th:href="@{/(page=${pagination.totalPage},search=${search},tag=${tag},sort=${sort})}"-->
-<!--                           aria-label="Previous">-->
-<!--                            <span aria-hidden="true">&gt;&gt;</span>-->
-<!--                        </a>-->
-<!--                    </li>-->
-<!--                </ul>-->
-<!--            </nav>-->
-<!--        </div>-->
+                    <li>
+                        <a th:href="@{/(page=${questionPage.pageNum - 1},size=${questionPage.pageSize})}"
+                           aria-label="Previous">
+                            <span aria-hidden="true">&lt;</span>
+                        </a>
+                    </li>
+
+
+                    <li th:each="page : ${questionPage.navigatepageNums}" >
+                        <a th:href="@{/(page=${page})}" th:text="${page}"></a>
+                    </li>
+
+
+                    <li>
+                        <a th:href="@{/(page=${questionPage.pageNum+1},size=${questionPage.pageSize})}"
+                           aria-label="Previous">
+                            <span aria-hidden="true">&gt;</span>
+                        </a>
+                    </li>
+
+                    <li >
+                        <a th:href="@{/(page=${questionPage.pages},size=${questionPage.pageSize})}"
+                           aria-label="Previous">
+                            <span aria-hidden="true">&gt;&gt;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
 <!--        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">-->
 <!--            <div th:insert="~{notice :: notice}"></div>-->
 <!--            &lt;!&ndash;相关问题&ndash;&gt;-->

@@ -1,3 +1,8 @@
 github.client.id: 0bdc6aa66b98c5b27cb7
 github.client.secret: f47ac7542f37a7b4b97339f60856c2322fbcba25
 github.redirect.uri: http://localhost:9090/callback
+
+pagehelper:
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
